@@ -1,0 +1,6 @@
+{
+  "*.{js,jsx,ts,tsx}": [
+    "eslint 'src/app/**/*.js' --cache --max-warnings=0",
+    "eslint --fix"
+  ]
+}

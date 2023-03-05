@@ -1,3 +1,153 @@
 {
-  "extends": "next/core-web-vitals"
+  "extends": ["next/core-web-vitals", "standard"],
+  "rules": {
+    "arrow-body-style": [
+      "error",
+      "as-needed",
+      { "requireReturnForObjectLiteral": true }
+    ],
+    "curly": ["error", "multi", "consistent"],
+    "eqeqeq": ["error", "smart"],
+    "jsx-quotes": ["error", "prefer-double"],
+    "max-depth": ["error", 4],
+    "max-params": ["error", 4],
+    "no-duplicate-imports": [
+      "error",
+      { "includeExports": true }
+    ],
+    "no-extra-semi": "error",
+    "no-inline-comments": "error",
+    "no-nested-ternary": "error",
+    "no-unused-expressions": [
+      "error",
+      {
+        "allowShortCircuit": true,
+        "allowTernary": true,
+        "enforceForJSX": true
+      }
+    ],
+    "no-unused-vars": [
+      "error",
+      {
+        "vars": "all",
+        "ignoreRestSiblings": true,
+        "destructuredArrayIgnorePattern": "^_"
+      }
+    ],
+    "padding-line-between-statements": [
+      "error",
+      {
+        "blankLine": "always",
+        "prev": "*",
+        "next": "return"
+      },
+      {
+        "blankLine": "always",
+        "prev": ["const", "let"],
+        "next": "*"
+      },
+      {
+        "blankLine": "any",
+        "prev": ["const", "let"],
+        "next": ["const", "let"]
+      }
+    ],
+    "prefer-const": "warn",
+    "quotes": ["error", "single", { "avoidEscape": true }],
+    "space-before-function-paren": [
+      "error",
+      {
+        "anonymous": "always",
+        "named": "always",
+        "asyncArrow": "always"
+      }
+    ],
+    "sort-imports": [
+      "warn",
+      {
+        "ignoreCase": true,
+        "ignoreDeclarationSort": false,
+        "ignoreMemberSort": false,
+        "memberSyntaxSortOrder": ["all", "single", "multiple", "none"],
+        "allowSeparatedGroups": false
+      }
+    ],
+    "react/destructuring-assignment": ["error", "always"],
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn",
+    "react/prop-types": "off",
+    "react/react-in-jsx-scope": "off",
+    "react/require-default-props": [
+      "warn",
+      {
+        "forbidDefaultForRequired": true
+      }
+    ],
+    "react/self-closing-comp": [
+      "warn",
+      {
+        "component": true,
+        "html": true
+      }
+    ],
+    "react/sort-prop-types": [
+      "warn",
+      {
+        "callbacksLast": true,
+        "ignoreCase": true,
+        "noSortAlphabetically": false,
+        "requiredFirst": true,
+        "sortShapeProp": true
+      }
+    ],
+    "react/jsx-closing-bracket-location": [
+      "warn",
+      {
+        "nonEmpty": "tag-aligned",
+        "selfClosing": "tag-aligned"
+      }
+    ],
+    "react/jsx-curly-newline": [
+      "error",
+      {
+        "multiline": "consistent",
+        "singleline": "consistent"
+      }
+    ],
+    "react/jsx-curly-spacing": [
+      "warn",
+      {
+        "when": "always",
+        "attributes": false,
+        "chidlren": true
+      }
+    ],
+    "react/jsx-first-prop-new-line": ["warn", "multiline-multiprop"],
+    "react/jsx-max-props-per-line": [
+      "warn",
+      {
+        "when": "multiline"
+      }
+    ],
+    "react/jsx-one-expression-per-line": ["warn", { "allow": "single-child" }],
+    "react/jsx-sort-props": [
+      "warn",
+      {
+        "callbacksLast": true,
+        "shorthandFirst": true,
+        "shorthandLast": false,
+        "ignoreCase": true,
+        "noSortAlphabetically": false
+      }
+    ],
+    "react/jsx-tag-spacing": [
+      "warn",
+      {
+        "afterOpening": "never",
+        "beforeClosing": "never",
+        "beforeSelfClosing": "always",
+        "closingSlash": "never"
+      }
+    ]
+  }
 }
