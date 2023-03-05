@@ -1,6 +1,4 @@
-import { AuthProvider } from '../components/AuthProvider'
 import styles from './layout.module.css'
-import { supabaseBrowserClient as supabase } from '../lib/supabase-browser-client'
 import './globals.css'
 
 export const metadata = {
@@ -26,9 +24,7 @@ export default function RootLayout ({ children }) {
             </div>
           </header>
           <main className="main__container">
-            <AuthProvider supabase={supabase}>
               {children}
-            </AuthProvider>
           </main>
         </div>
       </body>
