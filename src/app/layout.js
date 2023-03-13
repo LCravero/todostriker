@@ -1,32 +1,24 @@
-import styles from './layout.module.css'
-import './globals.css'
+'use client'
 
-export const metadata = {
-  title: 'Todostriker',
-  description: 'Be a striker of these todos and complete them'
-}
+import { CacheProvider } from '@chakra-ui/next-js'
+import { ChakraProvider, Grid } from '@chakra-ui/react'
+import { Footer, Navbar } from '../components'
+import './globals.css'
 
 export default function RootLayout ({ children }) {
   return (
     <html lang="en">
+      <head />
       <body>
-        <div
-          className={styles.general__container}
-          style={{ width: '100%', height: '100%' }}
-        >
-          <header>
-            <div className={styles.header__container}>
-              <div className="header__logo">
-                <span className="app__name">
-                  <strong>TODOSTRIKER</strong>
-                </span>
-              </div>
-            </div>
-          </header>
-          <main className="main__container">
+        <CacheProvider>
+          <ChakraProvider>
+            <Grid minH={'100vh'} templateRows={'auto 1fr auto'}>
+              <Navbar />
               {children}
-          </main>
-        </div>
+              <Footer />
+            </Grid>
+          </ChakraProvider>
+        </CacheProvider>
       </body>
     </html>
   )
