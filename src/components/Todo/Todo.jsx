@@ -57,12 +57,9 @@ const Todo = forwardRef((props, ref) => {
     <Card
       bg="whiteAlpha.200"
       borderColor={is_completed ? 'teal' : 'gray'}
-      // display={{ base: 'grid', md: 'block' }}
       h={{ base: 'auto', md: 'auto' }}
-      // justifyContent={{ base: 'center' }}
       variant="outline"
       w={{ base: '400px', md: '100%' }}
-      // minH={'150px'}
     >
       <CardBody pb={'0.5rem'}>
         {
@@ -99,6 +96,7 @@ const Todo = forwardRef((props, ref) => {
                     <Heading
                       as="h3"
                       color={`${is_completed ? 'teal' : 'gray'}`}
+                      data-testid="todo-title-header"
                       size="lg"
                     >
                       {title}
@@ -114,7 +112,7 @@ const Todo = forwardRef((props, ref) => {
                   bg="whiteAlpha.300"
                   defaultValue={description}
                   fontSize={'sm'}
-                  placeholder={description}
+                  placeholder="Todo description"
                   ref={ref.descriptionRef}
                   resize="none"
                   onBlur={(event) => onBlurSection({
@@ -127,6 +125,7 @@ const Todo = forwardRef((props, ref) => {
                   <Text
                     as={'i'}
                     color={'gray'}
+                    data-testid="todo-description"
                     fontSize={'sm'}
                   >
                     {description}
@@ -143,9 +142,11 @@ const Todo = forwardRef((props, ref) => {
               <Stack direction="row" justify="space-between" w="100%">
                 <Box>
                   <Select
+                    data-testid="todo-priority__selector"
                     isDisabled={is_completed}
                     placeholder="Priority"
                     size="sm"
+                    value={priority}
                     variant="flushed"
                     onChange={onChangePriority}
                   >
@@ -158,6 +159,7 @@ const Todo = forwardRef((props, ref) => {
                 <ButtonGroup spacing={'0.5rem'} variant="ghost">
                   <Button
                     colorScheme="purple"
+                    data-testid="dismiss-todo"
                     fontSize={{ base: 'xs', md: 'sm' }}
                     size="sm"
                     variant="ghost"
@@ -167,6 +169,7 @@ const Todo = forwardRef((props, ref) => {
                   </Button>
                   <Button
                     colorScheme="teal"
+                    data-testid="save-update-todo"
                     fontSize={{ base: 'xs', md: 'sm' }}
                     size="sm"
                     variant="ghost"

@@ -4,7 +4,7 @@ import reducer from './todo-reducer'
 import Todo from './Todo'
 import { updateTodoInDB } from '../../services/todo.services'
 import { useToast } from '@chakra-ui/react'
-import useTodos from '@/hooks/useTodos'
+import useTodos from '../../hooks/useTodos'
 import useTodoStore from '../../store/slices/todo-store-slice'
 import { useCallback, useReducer, useRef } from 'react'
 

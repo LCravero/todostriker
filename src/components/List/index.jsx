@@ -29,6 +29,7 @@ export default function List ({ items = [], isDraggable }) {
   if (isDraggable)
     return (
       <DraggableContainer
+        data-testid="draggable-container-area"
         onDragEnd={onDragEnd}
       >
         <Droppable droppableId="todo-list-droppable-section">
