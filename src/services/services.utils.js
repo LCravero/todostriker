@@ -6,7 +6,7 @@ import supabase from '../utils/supabase'
  * @property {?string | ?string[]} columns - Column or columns names to be retrieved
  * @property {string} from - Table name where looking for
  */
-export const select = ({ columns, from, options = {} }) => {
+export const select = ({ columns = '*', from, options = {} }) => {
   let columnsArgs = columns || '*'
 
   if (Array.isArray(columns))
