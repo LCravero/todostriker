@@ -10,8 +10,22 @@ import { createTodoInDB, deleteTodoFromDB } from './todo.services'
  * @property {bool} [is_complete=false] - Flag to know if the todos list is complete
  */
 
-export async function getTodosLists () {
-  const { data, error } = await select({ from: 'todoslist' })
+export async function getTodosLists ({ columns = null, byId = null, byName = null, byIsCompleted = false }) {
+  let todosLists = select({ from: 'todoslist' })
+
+  if (columns)
+    todosLists = select({ columns, from: 'todoslist' })
+
+  if (byId)
+    todosLists = todosLists.eq('id', byId)
+
+  if (byName)
+    todosLists = todosLists.eq('name', byName)
+
+  if (byIsCompleted)
+    todosLists = todosLists.eq('is_completed', byIsCompleted)
+
+  const { data, error } = await todosLists
 
   return { data, error }
 }
@@ -22,9 +36,9 @@ export async function getTodosLists () {
  * @returns {Todoslist} Data of the new todos list
  */
 export async function createTodosListInDB (listData) {
-  const { id = uuidV4(), name = '', is_complete = false } = listData
-  const { data, error: createListError } = await insert({
-    rows: { id, name, is_complete },
+  const { id = uuidV4(), name = 'New Todos List', is_completed = false } = listData
+  const { error: createListError } = await insert({
+    rows: { id, name, is_completed },
     into: 'todoslist'
   })
 
@@ -35,7 +49,7 @@ export async function createTodosListInDB (listData) {
     forList: id
   })
 
-  return { data, error: createTodoForListError }
+  return { data: { id, name, is_completed }, error: createTodoForListError }
 }
 
 export async function updateTodosListInDB (newListData) {

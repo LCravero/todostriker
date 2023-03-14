@@ -90,7 +90,9 @@ export async function createTodoInDB ({
 }) {
   if (!forList) {
     const { error } = await insert({
-      rows: { id, title, description, priority, is_completed },
+      rows: {
+        id, title, description, priority, is_completed
+      },
       into: 'todo'
     })
 
@@ -98,19 +100,8 @@ export async function createTodoInDB ({
   }
 
   // Insert new todo related to the given list
-  const { data, error: errorGetListId } = await select({
-    columns: 'id',
-    from: 'todoslist'
-  })
-    .eq('name', forList)
-
-  if (errorGetListId)
-    return { error: errorGetListId }
-
-  const { id: listId } = data
-
   const { error: insertRowError } = await insert({
-    rows: { id, title, description, priority, is_completed, list_id: listId },
+    rows: { id, title, description, priority, is_completed, list_id: forList },
     into: 'todo'
   })
 
