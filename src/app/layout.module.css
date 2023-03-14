@@ -1,0 +1,13 @@
+.general__container {
+  width: 100%;
+  height: 100%;
+}
+
+.header__container {
+  display: flex;
+  padding: .5rem;
+}
+
+.header__logo > .app__name {
+  font-size: 1.5rem;
+}
