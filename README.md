@@ -5,6 +5,8 @@
 *TodoStriker* is a demo app, to make simple todos list, prioritize them, order them and make your daily job simple and easy.
 Also, enable you to create your own todos lists and saved them in the cloud.
 
+Visit the productive TodoStriker app, TodoStriker [here](https://todostriker.vercel.app/)
+
 ### Actual TodoStriker scope
 
 Actually, we gonna find that *TodoStriker* allows us:
